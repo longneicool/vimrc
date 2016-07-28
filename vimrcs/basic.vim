@@ -78,10 +78,13 @@ set langmenu=en
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
-" Turn on the WiLd menu
+" Turn on the WiLd menu 自动不全命令时采用下拉菜单
 set wildmenu
 
-" Ignore compiled files
+" Show line number
+set nu
+
+" Ignore compiled files. Tab键自动补全时会忽略这些文件
 set wildignore=*.o,*~,*.pyc
 if has("win16") || has("win32")
     set wildignore+=.git\*,.hg\*,.svn\*
@@ -89,16 +92,16 @@ else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
 
-"Always show current position
+"Always show current position. 在当前vim的右下角显示当前光标的位置
 set ruler
 
-" Height of the command bar
+" Height of the command bar. 状态列的行数，及最下面状态行数
 set cmdheight=2
 
-" A buffer becomes hidden when it is abandoned
+" A buffer becomes hidden when it is abandoned. 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存  
 set hid
 
-" Configure backspace so it acts as it should act
+" Configure backspace so it acts as it should act. 允许backspace和光标键跨越行边界
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
